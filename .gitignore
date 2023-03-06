@@ -1,0 +1,14 @@
+# vim session
+dotfiles.vim
+*.swp
+
+# nvim
+nvim/pack
+nvim/plugged
+nvim/.netrwhist
+
+# macos
+.DS_Store
+
+# Copilot
+nvim/pack/github/start/copilot.vim
