@@ -9,6 +9,8 @@ RUN echo "#!/usr/bin/env bash" > /bin/init-zsh; \
     echo "cd ~" >> /bin/init-zsh; \
     echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"" >> /bin/init-zsh; \
     echo "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" >> /bin/init-zsh; \
+    echo "git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions" >> /bin/init-zsh; \
     echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.zshrc" >> /bin/init-zsh; \
     echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.p10k.zsh" >> /bin/init-zsh; \
-    echo "chmod +x /bin/init-zsh"
+    echo "mv ~/.zshrc.1 ~/.zshrc"; \
+    echo "chmod 755 /bin/init-zsh"
