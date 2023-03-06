@@ -9,8 +9,11 @@ ARG version=1.27.3.14493
 RUN wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-${version}.tar.gz ; \
     tar xvzf jetbrains-toolbox-${version}.tar.gz ; \
     rm jetbrains-toolbox-${version}.tar.gz ; \
-    mv jetbrains-toolbox-${version} /bin/jetbrains-toolbox
+    mv jetbrains-toolbox-${version} /bin/jetbrains-toolbox ; \
+    chmod 755 /bin/jetbrains-toolbox/jetbrains-toolbox
 
-RUN echo "#!/usr/bin/env bash" > /bin/init-jetbrains-toolbox; \
-    echo "" >> /bin/init-jetbrains-toolbox; \
-    echo "chmod 755 /bin/init-jetbrains-toolbox"
+RUN echo "#!/bin/bash" > /bin/init-jetbrains-toolbox; \
+    echo "jetbrains-toolbox" ; \
+    echo "distrobox-export --app jetbrains-toolbox" >> /bin/init-jetbrains-toolbox; \
+    echo "You may need to fix the icon path on the file \${HOME}/.local/share/applications/jetbrains-toolbox.desktop" >> /bin/init-jetbrains-toolbox; \
+    chmod 755 /bin/init-jetbrains-toolbox
