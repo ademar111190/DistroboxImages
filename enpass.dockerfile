@@ -8,9 +8,10 @@ RUN wget https://yum.enpass.io/RPM-GPG-KEY-enpass-signing-key ; \
     rpm --import RPM-GPG-KEY-enpass-signing-key ; \
     zypper ar -n -f -c https://yum.enpass.io/stable/x86_64/ Enpass ; \
     zypper update ; \
-    zypper install enpass
+    zypper -n install enpass
 
-RUN echo "#!/bin/bash" > /opt/init-enpass; \
+RUN mkdir /opt ; chmod 777 /opt ; \
+    echo "#!/bin/bash" > /opt/init-enpass; \
     echo "enpass" ; \
     echo "distrobox-export --app enpass" >> /opt/init-enpass; \
     echo "You may need to fix the icon path on the file \${HOME}/.local/share/applications/enpass.desktop" >> /opt/init-enpass; \

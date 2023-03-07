@@ -5,16 +5,14 @@ RUN zypper -n install bash bc curl diffutils findutils gnupg less libvte-2* libv
 # my stuff
 RUN zypper -n install bat exa git neofetch neovim zsh
 
-ENV PATH="${PATH}:/opt"
-
-RUN echo "#!/bin/bash" > /opt/init-zsh; \
-    echo "cd ~" >> /opt/init-zsh; \
-    echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"" >> /opt/init-zsh; \
-    echo "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" >> /opt/init-zsh; \
-    echo "git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" >> /opt/init-zsh; \
-    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.zshrc" >> /opt/init-zsh; \
-    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.p10k.zsh" >> /opt/init-zsh; \
-    echo "echo \"entering zsh, please exit to finish the script\"" >> /opt/init-zsh; \
-    echo "zsh" >> /opt/init-zsh ; \
+RUN echo "#!/bin/bash" > /usr/bin/init-zsh; \
+    echo "cd ~" >> /usr/bin/init-zsh; \
+    echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"" >> /usr/bin/init-zsh; \
+    echo "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" >> /usr/bin/init-zsh; \
+    echo "git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" >> /usr/bin/init-zsh; \
+    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.zshrc" >> /usr/bin/init-zsh; \
+    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.p10k.zsh" >> /usr/bin/init-zsh; \
+    echo "echo \"entering zsh, please exit to finish the script\"" >> /usr/bin/init-zsh; \
+    echo "zsh" >> /usr/bin/init-zsh ; \
     echo "mv ~/.zshrc.1 ~/.zshrc"; \
-    chmod 755 /opt/init-zsh
+    chmod 755 /usr/bin/init-zsh
