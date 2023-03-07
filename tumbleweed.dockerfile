@@ -14,5 +14,7 @@ RUN echo "#!/bin/bash" > /opt/init-zsh; \
     echo "git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" >> /opt/init-zsh; \
     echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.zshrc" >> /opt/init-zsh; \
     echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.p10k.zsh" >> /opt/init-zsh; \
+    echo "echo \"entering zsh, please exit to finish the script\"" >> /opt/init-zsh; \
+    echo "zsh" >> /opt/init-zsh ; \
     echo "mv ~/.zshrc.1 ~/.zshrc"; \
     chmod 755 /opt/init-zsh
