@@ -14,5 +14,5 @@ RUN echo "#!/bin/bash" > /usr/bin/init-zsh; \
     echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.p10k.zsh" >> /usr/bin/init-zsh; \
     echo "echo \"entering zsh, please exit to finish the script\"" >> /usr/bin/init-zsh; \
     echo "zsh" >> /usr/bin/init-zsh ; \
-    echo "mv ~/.zshrc.1 ~/.zshrc"; \
+    echo "mv ~/.zshrc.1 ~/.zshrc" >> /usr/bin/init-zsh ; \
     chmod 755 /usr/bin/init-zsh
