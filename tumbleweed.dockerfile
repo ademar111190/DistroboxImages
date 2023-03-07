@@ -5,12 +5,14 @@ RUN zypper -n install bash bc curl diffutils findutils gnupg less libvte-2* libv
 # my stuff
 RUN zypper -n install bat exa git neofetch neovim zsh
 
-RUN echo "#!/bin/bash" > /bin/init-zsh; \
-    echo "cd ~" >> /bin/init-zsh; \
-    echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"" >> /bin/init-zsh; \
-    echo "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" >> /bin/init-zsh; \
-    echo "git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions" >> /bin/init-zsh; \
-    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.zshrc" >> /bin/init-zsh; \
-    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.p10k.zsh" >> /bin/init-zsh; \
+ENV PATH="${PATH}:/opt"
+
+RUN echo "#!/bin/bash" > /opt/init-zsh; \
+    echo "cd ~" >> /opt/init-zsh; \
+    echo "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"" >> /opt/init-zsh; \
+    echo "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" >> /opt/init-zsh; \
+    echo "git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" >> /opt/init-zsh; \
+    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.zshrc" >> /opt/init-zsh; \
+    echo "wget https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.p10k.zsh" >> /opt/init-zsh; \
     echo "mv ~/.zshrc.1 ~/.zshrc"; \
-    chmod 755 /bin/init-zsh
+    chmod 755 /opt/init-zsh
