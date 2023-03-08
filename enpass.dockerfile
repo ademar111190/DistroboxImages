@@ -15,6 +15,7 @@ RUN wget https://yum.enpass.io/RPM-GPG-KEY-enpass-signing-key; \
 
 RUN echo "#!/bin/bash" > /usr/bin/init-script; \
     echo "enpass" >> /usr/bin/init-script; \
+    echo "sleep 1m # make sure the first run happened" >> /usr/bin/init-script; \
     echo "distrobox-export --app enpass" >> /usr/bin/init-script; \
     echo "echo \"You may need to fix the icon path on the file ~/.local/share/applications/<<image name>>-enpass.desktop\"" >> /usr/bin/init-script; \
     chmod 755 /usr/bin/init-script

@@ -14,6 +14,7 @@ RUN wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-${version}.tar
 
 RUN echo "#!/bin/bash" > /usr/bin/init-script; \
     echo "jetbrains-toolbox" >> /usr/bin/init-script; \
+    echo "sleep 1m # make sure the first run happened" >> /usr/bin/init-script; \
     echo "distrobox-export --app jetbrains-toolbox" >> /usr/bin/init-script; \
     echo "echo \"You may need to fix the icon path on the file ~/.local/share/applications/<<image name>>-jetbrains-toolbox.desktop\"" >> /usr/bin/init-script; \
     chmod 755 /usr/bin/init-script

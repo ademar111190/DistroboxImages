@@ -37,5 +37,5 @@ ARG args=( \
     )
 
 RUN echo "#!/bin/bash" > /usr/bin/init-script; \
-    echo "qemu-system-x86_64 \"${args[@]}\"" > /usr/bin/init-script ; \
+    echo "qemu-system-x86_64 \"${args[@]}\"" > /usr/bin/init-script; \
     chmod 755 /usr/bin/init-script
