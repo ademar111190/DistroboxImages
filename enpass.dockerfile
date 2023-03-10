@@ -3,7 +3,7 @@ FROM registry.opensuse.org/opensuse/tumbleweed:latest
 # distrobox stuff
 RUN zypper -n install bash bc curl diffutils findutils gnupg less libvte-2* libvulkan1 libvulkan_intel libvulkan_radeon lsof Mesa-dri ncurses pinentry procps shadow sudo systemd time util-linux util-linux-systemd wget
 # enpass dependencies
-RUN zypper -n install libpulse0 libxcb-keysyms1 libxcb-libSM6 libxcb-render-util0 libxcb-shape libxcb-xinput0 libxcb-xkb1 libxcb1 libxcbcommon-x11-0
+RUN zypper -n install libpulse0 libxcb-keysyms1 libxcb-libSM6 libxcb-render-util0 libxcb-shape libxcb-xinput0 libxcb-xkb1 libxcb1 libxkbcommon-x11-0
 
 RUN wget https://yum.enpass.io/RPM-GPG-KEY-enpass-signing-key; \
     rpm --import RPM-GPG-KEY-enpass-signing-key; \
