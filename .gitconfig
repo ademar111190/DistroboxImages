@@ -1,0 +1,42 @@
+[user]
+    email = ademar111190@gmail.com
+    name = Ademar Alves de Oliveira
+    #signingkey = <<sign key>>
+[alias]
+    a = add
+    b = branch
+    bc= checkout -b
+    bb= log --graph --simplify-by-decoration --pretty=format:'%d' --all
+    c = commit
+    cl= clean -f -d
+    d = diff
+    dc= diff --cached
+    e = shortlog --summary --numbered
+    f = ls-files --others --exclude-standard
+    h = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    k = clone --recursive
+    l = shortlog -s
+    o = checkout
+    p = pull
+    s = status
+    t = log --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
+    u = reset HEAD~
+    x = push
+    z = reset
+    conflicts = !git ls-files -u | cut -f 2 | sort -u
+    apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
+[core]
+    autocrlf = input
+[commit]
+    #gpgsign = true
+[init]
+    defaultBranch = master
+[credential]
+    helper = store
+[push]
+    autoSetupRemote = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
