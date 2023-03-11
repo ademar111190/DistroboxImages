@@ -6,10 +6,11 @@ RUN zypper -n install bash bc curl diffutils findutils gnupg less libvte-2* libv
 RUN zypper -n install git python3-pip qemu-audio-pa qemu-kvm qemu-tools qemu-x86
 
 RUN git clone --depth=1 https://github.com/notAperson535/OneClick-macOS-Simple-KVM.git macoskvm
+RUN python3 macoskvm/fetch-macOS-v2.py -s ventura; \
+    (ls RecoveryImage.dmg >> /dev/null 2>&1 && mv RecoveryImage.dmg BaseSystem.dmg) || echo ""; \
+    qemu-img convert BaseSystem.dmg -O raw BaseSystem.img; \
+    rm BaseSystem.dmg
 RUN (ls macOS.qcow2 >> /dev/null 2>&1 && echo "") || qemu-img create -f qcow2 macOS.qcow2 20G
-RUN python3 macoskvm/fetch-macOS-v2.py
-RUN (ls RecoveryImage.dmg >> /dev/null 2>&1 && mv RecoveryImage.dmg BaseSystem.dmg) || echo ""
-RUN qemu-img convert BaseSystem.dmg -O raw BaseSystem.img
 
 ARG args=( \
         -enable-kvm \
