@@ -4,7 +4,7 @@ FROM registry.opensuse.org/opensuse/tumbleweed:latest
 RUN zypper -n install bash bc curl diffutils findutils gnupg less libvte-2* libvulkan1 libvulkan_intel libvulkan_radeon lsof Mesa-dri ncurses pinentry procps shadow sudo systemd time util-linux util-linux-systemd wget
 # snap dependencies
 RUN zypper -n addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy; \
-    zypper --gpg-auto-import-keys refresh -y; \
+    zypper -n --gpg-auto-import-keys refresh; \
     zypper -n dup; \
     zypper -n install snapd; \
     systemctl enable snapd; \
