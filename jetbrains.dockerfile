@@ -5,7 +5,7 @@ RUN zypper -n install bash bc curl diffutils findutils gnupg less libvte-2* libv
 # jetbrains dependencies
 RUN zypper -n install fuse fuse3 gtk4-devel libfuse2 libXtst
 
-ARG version=1.27.3.14493
+ARG version=2.0.2.16660
 RUN wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-${version}.tar.gz; \
     tar xvzf jetbrains-toolbox-${version}.tar.gz; \
     rm jetbrains-toolbox-${version}.tar.gz; \
