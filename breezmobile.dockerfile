@@ -15,4 +15,15 @@ RUN echo "#!/bin/bash" > /usr/bin/init-script; \
     echo "curl --output ~/.gitconfig https://raw.githubusercontent.com/ademar111190/DistroboxImages/main/.gitconfig" >> /usr/bin/init-script; \
     echo "echo \"entering zsh, please exit to finish the script\"" >> /usr/bin/init-script; \
     echo "zsh" >> /usr/bin/init-script; \
+    echo "echo \"install go\"" >> /usr/bin/init-script; \
+    echo "wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz" >> /usr/bin/init-script; \
+    echo "rm -rf ~/go && tar -C ~ -xzf go1.21.0.linux-amd64.tar.gz" >> /usr/bin/init-script; \
+    echo "rm go1.21.0.linux-amd64.tar.gz" >> /usr/bin/init-script; \
+    echo "~/go/bin/go install golang.org/x/mobile/cmd/gomobile@latest" >> /usr/bin/init-script; \
+    echo "~/go/bin/go install golang.org/x/mobile/cmd/gobind@latest" >> /usr/bin/init-script; \
+    echo "echo \"install flutter\"" >> /usr/bin/init-script; \
+    echo "git clone --depth 1 --branch 3.7.12 https://github.com/flutter/flutter.git ~/flutter" >> /usr/bin/init-script; \
+    echo "~/flutter/bin/flutter precache" >> /usr/bin/init-script; \
+    echo "echo \"export PATH=$PATH:~/go/bin\" >> ~/.zshrc" >> /usr/bin/init-script; \
+    echo "echo \"export PATH=$PATH:~/flutter/bin\" >> ~/.zshrc" >> /usr/bin/init-script; \
     chmod 755 /usr/bin/init-script
