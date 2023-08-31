@@ -14,5 +14,5 @@ git clone --depth 1 --branch 3.7.12 https://github.com/flutter/flutter.git ~/flu
 echo "export PATH=$PATH:~/go/bin" >> ~/.zshrc
 echo "export PATH=$PATH:~/flutter/bin" >> ~/.zshrc
 
+cd
 echo "Done 🍻"
-cd 
