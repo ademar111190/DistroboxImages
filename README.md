@@ -12,5 +12,6 @@ podman build -f <<Container.dockerfile>> -t <<image name>>
 ```bash
 distrobox create <<box name>> -H <<path to box home folder>> -i <<image name>>
 distrobox enter <<image name>>
-init-script # init some stuff on the for the user as I'm passing a custom home to distrobox
 ```
+
+Some first run steps are saved on init.sh or equivalent, after entering the first time you may need run these scripts
