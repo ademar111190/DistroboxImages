@@ -8,7 +8,7 @@ cd -
 
 echo "Building the bindings 🌉"
 cd libs/sdk-bindings
-make init kotlin bindings-android
+make init bindings-android
 cd -
 
 echo "Building the flutter 🦋"
