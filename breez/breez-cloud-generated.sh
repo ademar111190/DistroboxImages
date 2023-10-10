@@ -18,6 +18,7 @@ cd -
 
 echo "Making flutter rust bridge 🦋"
 cd libs/sdk-flutter
+flutter pub get
 make flutter_rust_bridge
 cd -
 
