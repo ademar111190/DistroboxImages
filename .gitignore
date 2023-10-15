@@ -12,3 +12,6 @@ nvim/.netrwhist
 
 # Copilot
 nvim/pack/github/start/copilot.vim
+
+# intellij
+.idea/
