@@ -11,7 +11,7 @@ RUN apt install -y bash apt-utils bash-completion bc bzip2 curl dialog diffutils
 
 # breez cloud stuff
 RUN apt install -y build-essential git protobuf-compiler libclang-dev gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf \
-    gcc-aarch64-linux-gnu g++-arm-linux-gnueabi
+    gcc-aarch64-linux-gnu g++-arm-linux-gnueabi nodejs npm
 
 # clion needs access the cc compiler so we need to install in on this box insted of using the jetbrains box
 RUN apt install -y libfuse2 fuse fuse3 libgtk-4-dev libxtst-dev xdg-utils flatpak

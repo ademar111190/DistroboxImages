@@ -16,6 +16,11 @@ cd libs/sdk-flutter
 make init flutter_rust_bridge android
 cd -
 
+echo "Building the reactive native"
+cd libs/sdk-react-native
+make init react-native-codegen android
+cd -
+
 echo "Running the CLI 🖥"
 cd tools/sdk-cli
 cargo run
