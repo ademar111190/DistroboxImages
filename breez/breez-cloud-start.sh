@@ -26,6 +26,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get update
 sudo apt-get install yarn -y
 sudo yarn global add tslint typescript --global
+cargo install breez-sdk-rn-generator --git https://github.com/breez/breez-sdk-rn-generator
 
 echo "exporting paths"
 echo "export PATH=\$PATH:~/flutter/bin" >> ~/.bashrc
