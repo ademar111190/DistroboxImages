@@ -11,9 +11,10 @@ echo "export PATH=\$PATH:\"/home/ademar/Box/jetbrains/Android/Sdk/cmdline-tools/
 
 echo "install rust"
 curl https://sh.rustup.rs -sSf | sh
+cargo install flutter_rust_bridge_codegen --version 1.80.1
 
 echo "install flutter"
-git clone --depth 1 --branch 3.7.12 https://github.com/flutter/flutter.git ~/flutter
+git clone --depth 1 --branch 3.13.8 https://github.com/flutter/flutter.git ~/flutter
 ~/flutter/bin/flutter precache
 
 echo "install react native deps"
