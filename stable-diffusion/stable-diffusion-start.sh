@@ -1,22 +1,6 @@
 #!/bin/bash
 echo "Starting 🍻"
 
-echo "*********"
-echo "MAKE SURE SESLINUX IS PERMISSIVE"
-echo "check it with 'sestatus' and if not permissive run 'sudo setenforce 0' on host machine"
-echo "*********"
-
-echo "Setting users"
-sudo usermod -a -G render,video $LOGNAME
-
-echo "Editing bash file"
-echo "export PATH=\${PATH}:/opt/rocm-5.7.1/bin" >> ~/.bashrc
-source ~/.bashrc
-
-echo "execstack"
-sudo execstack -c /opt/rocm/lib/*.so
-sudo execstack -c /opt/rocm/lib/*.so.*
-
 cd
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
 cd stable-diffusion-webui
