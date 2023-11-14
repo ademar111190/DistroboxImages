@@ -1,4 +1,4 @@
-FROM docker.io/library/ubuntu:23.04
+FROM quay.io/toolbx-images/ubuntu-toolbox:22.04
 
 RUN export DEBIAN_FRONTEND=noninteractive ; apt update
 

@@ -14,7 +14,7 @@ echo "install flutter"
 git clone --depth 1 --branch 3.7.12 https://github.com/flutter/flutter.git ~/flutter
 ~/flutter/bin/flutter precache
 
-echo "export PATH=\$PATH:~/flutter/bin" >> ~/.bashrc
+echo "export PATH=~/flutter/bin:\$PATH" >> ~/.bashrc
 
 cd
 echo "Done 🍻"
