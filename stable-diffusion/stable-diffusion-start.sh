@@ -8,6 +8,7 @@ git checkout 4afaaf8a020c1df457bcf7250cb1c7f609699fa7
 python3 -m venv venv
 source venv/bin/activate
 python3 -m pip install --upgrade pip wheel
+pip install -v -U git+https://github.com/facebookresearch/xformers.git@main#egg=xformers
 ./webui.sh --precision full --no-half
 cd
 
