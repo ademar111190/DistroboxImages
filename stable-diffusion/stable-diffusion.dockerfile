@@ -11,7 +11,7 @@ RUN apt install -y bash apt-utils bash-completion bc bzip2 curl dialog diffutils
 
 # stable diffusion deps
 RUN apt install -y wget git python3 python3.10-venv python3-pip libgl1 libglib2.0-0 google-perftools execstack clinfo \
-    ripgrep libstdc++-12-dev
+    ripgrep libstdc++-12-dev libjpeg-dev python3-dev
 
 # rocm
 ARG ROCM_VERSION=5.7.1
