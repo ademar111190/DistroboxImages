@@ -10,12 +10,12 @@ RUN apt install -y bash apt-utils bash-completion bc bzip2 curl dialog diffutils
     libgl1-mesa-glx libvulkan1 mesa-vulkan-drivers
 
 # breez cloud stuff
-RUN apt install -y build-essential git protobuf-compiler libclang-dev gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf \
-    gcc-aarch64-linux-gnu g++-arm-linux-gnueabi nodejs npm
+RUN apt update; apt install -y build-essential git protobuf-compiler libclang-dev gcc-arm-linux-gnueabi \
+    gcc-arm-linux-gnueabihf gcc-aarch64-linux-gnu g++-arm-linux-gnueabi nodejs npm cmake ninja-build libgtk-3-dev
 
 # clion needs access the cc compiler so we need to install in on this box insted of using the jetbrains box
-RUN apt install -y libfuse2 fuse fuse3 libgtk-4-dev libxtst-dev xdg-utils flatpak
-ARG version=2.0.3.17006
+RUN apt update; apt install -y libfuse2 fuse3 libgtk-4-dev libxtst-dev xdg-utils flatpak
+ARG version=2.1.1.18388
 RUN curl -fsSL "https://download.jetbrains.com/toolbox/jetbrains-toolbox-${version}.tar.gz" -o toolbox.tar.gz ; \
     tar xvzf toolbox.tar.gz; \
     rm toolbox.tar.gz; \
